@@ -40,8 +40,8 @@ public class CourseRepository {
         while (start + 1 < end) {
             int total = arr[start] + arr[end];
             if (target == total) {
-                ans.add(arr[start]);
-                ans.add(arr[end]);
+                ans.add(start);
+                ans.add(end);
                 return ans;
             } else if (target < total) {
                 --end;
@@ -50,8 +50,34 @@ public class CourseRepository {
             }
         }
         if (target == (arr[start] + arr[end])){
-            ans.add(arr[start]);
-            ans.add(arr[end]);
+            ans.add(start);
+            ans.add(end);
+            return ans;
+        }
+        ans.add(-1);
+        ans.add(-1);
+        return ans;
+    }
+
+    public List<Integer> findIndex(int[] ar, Integer target) {
+        int start = 0;
+        int end = ar.length - 1;
+        List<Integer> ans = new ArrayList<>();
+        while (start + 1 < end) {
+            int total = ar[start] + ar[end];
+            if (target == total) {
+                ans.add(start);
+                ans.add(end);
+                return ans;
+            } else if (target < total) {
+                --end;
+            } else {
+                ++start;
+            }
+        }
+        if (target == (ar[start] + ar[end])){
+            ans.add(start);
+            ans.add(end);
             return ans;
         }
         ans.add(-1);

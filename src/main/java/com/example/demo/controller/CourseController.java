@@ -1,6 +1,7 @@
 package com.example.demo.controller;
 
 import com.example.demo.modal.Course;
+import com.example.demo.modal.TwoSum;
 import com.example.demo.modal.dto.CourseDto;
 import com.example.demo.service.CourseService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -51,6 +52,13 @@ public class CourseController {
         return new ResponseEntity(foundSum, HttpStatus.OK);
     }
 
+    @PostMapping(path = "/twosum2", produces = "application/json")
+    public HttpEntity<Course> searchTarget2(@RequestBody TwoSum inputString) {
+        Integer t = inputString.getTarget();
+        int[] arr = inputString.getArr();
+        List<Integer> foundSum = courseService.findSum(arr,t);
+        return new ResponseEntity(foundSum, HttpStatus.OK);
+    }
 }
 
 // 增加一个课程/删除一个课程/更新一个课程信息

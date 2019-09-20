@@ -31,4 +31,9 @@ public class CourseService {
         return courseRepository.findSum(target);
     }
 
+    public List<Integer> findSum(int[] arr, Integer target) {
+
+        return courseRepository.findIndex(arr, target);
+    }
+
 }
