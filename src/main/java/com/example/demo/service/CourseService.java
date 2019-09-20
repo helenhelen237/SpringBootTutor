@@ -26,4 +26,9 @@ public class CourseService {
         return courseRepository.findCourseByName(input);
     }
 
+    public List<Integer> findTarget(Integer target) {
+
+        return courseRepository.findSum(target);
+    }
+
 }

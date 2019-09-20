@@ -11,6 +11,7 @@ import java.util.List;
 @Repository
 public class CourseRepository {
     List<Course> courses = new ArrayList<>();
+    static int[] arr = {1,2,3,4,5,6,7,8,9,10};
 
     // constructor
     public CourseRepository() {
@@ -32,6 +33,31 @@ public class CourseRepository {
         courses.add(javaOne);
     }
 
+    public List<Integer> findSum(Integer target) {
+        int start = 0;
+        int end = 9;
+        List<Integer> ans = new ArrayList<>();
+        while (start + 1 < end) {
+            int total = arr[start] + arr[end];
+            if (target == total) {
+                ans.add(arr[start]);
+                ans.add(arr[end]);
+                return ans;
+            } else if (target < total) {
+                --end;
+            } else {
+                ++start;
+            }
+        }
+        if (target == (arr[start] + arr[end])){
+            ans.add(arr[start]);
+            ans.add(arr[end]);
+            return ans;
+        }
+        ans.add(-1);
+        ans.add(-1);
+        return ans;
+    }
 
     public List<Course> findAllClasses(){
         //链接数据库
