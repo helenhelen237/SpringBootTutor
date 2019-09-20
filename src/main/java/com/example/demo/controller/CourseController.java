@@ -50,7 +50,6 @@ public class CourseController {
 
         return new ResponseEntity(foundSum, HttpStatus.OK);
     }
-
 }
 
 // 增加一个课程/删除一个课程/更新一个课程信息

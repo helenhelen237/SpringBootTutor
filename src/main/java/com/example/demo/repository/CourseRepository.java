@@ -37,11 +37,12 @@ public class CourseRepository {
         int start = 0;
         int end = 9;
         List<Integer> ans = new ArrayList<>();
+
         while (start + 1 < end) {
             int total = arr[start] + arr[end];
             if (target == total) {
-                ans.add(arr[start]);
-                ans.add(arr[end]);
+                ans.add(start);
+                ans.add(end);
                 return ans;
             } else if (target < total) {
                 --end;
@@ -49,11 +50,13 @@ public class CourseRepository {
                 ++start;
             }
         }
+
         if (target == (arr[start] + arr[end])){
-            ans.add(arr[start]);
-            ans.add(arr[end]);
+            ans.add(start);
+            ans.add(end);
             return ans;
         }
+
         ans.add(-1);
         ans.add(-1);
         return ans;
